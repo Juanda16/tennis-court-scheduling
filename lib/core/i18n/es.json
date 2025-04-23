@@ -1,0 +1,30 @@
+{
+  "name": "Juan Arismendy",
+  "home_page": {
+    "home": "Inicio",
+    "about": "Sobre de",
+    "about_me": "Sobre mí",
+    "experience": "experiencia",
+    "services": "Servicios",
+    "resume": "CV",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "blog": "Blog",
+    "portfolio": "Portafolio",
+    "hire_me": "Contrátame",
+    "download_cv": "Descargar CV",
+    "hello": "HOLA, Soy",
+    "software_engineer": "Ingeniero de Software",
+    "contact_me": "Contáctame",
+    "slogan": "Me gusta hacer que las cosas sucedan",
+    "special_services": "Servicios Especiales",
+    "development": "Desarrollo",
+    "my_special_services(rich)": "Mis ${specialServices} para el ${development} de tu negocio",
+    "professional_skills": "Habilidades Profesionales",
+    "my_skills": "Mis Habilidades",
+    "my_talents": "Mis Talentos",
+    "latest_projects": "Últimos Proyectos",
+    "explore_projects(rich)": "Explora Mis $Projects Más Recientes"
+  }
+}

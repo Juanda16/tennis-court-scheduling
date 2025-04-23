@@ -1,0 +1,84 @@
+name: tennis_court_scheduling
+description: "Tennis court scheduling App"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.4 <4.0.0' # Dart SDK version constraint
+
+dependencies:
+  # Core Flutter dependencies
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Material Design and Cupertino widgets
+  cupertino_icons: ^1.0.6 # iOS style icons
+
+  # State management and routing
+  flutter_bloc: ^8.1.3 # State management with BLoC/Cubit
+  go_router: ^13.2.0   # Declarative routing (suitable for web)
+
+  # Data handling and utilities
+  equatable: ^2.0.5   # Value equality for objects
+  dartz: ^0.10.1      # Functional programming utilities (Either, Option)
+  get_it: ^7.6.7      # Dependency injection
+
+  # Internationalization (i18n)
+  slang: ^4.6.0          # i18n solution (likely with code generation)
+  slang_flutter: ^4.6.0  # Flutter integration for slang
+
+  # UI and other features
+  url_launcher: ^6.2.5 # Open external links (e.g., email)
+
+  # Code generation dependencies (for runtime annotations)
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+  flutter_svg: ^2.0.17
+  cached_network_image: ^3.4.1
+
+dev_dependencies:
+  # Testing
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^9.1.5    # Testing utilities for BLoC/Cubit
+  mocktail: ^1.0.3     # Mocking library for tests
+
+  # Code generation (build_runner and specific generators)
+  build_runner: ^2.4.15
+  freezed: ^3.0.4
+  json_serializable: ^6.9.4
+  slang_build_runner: ^4.6.0
+
+  # Code quality and linting
+  flutter_lints: ^3.0.0 # Recommended lints for Flutter projects
+
+flutter:
+  uses-material-design: true # Enables Material Design
+
+  #   Assets (example - replace with your actual assets)
+  assets:
+    - assets/images/
+    - assets/icons/social_media/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+          weight: 600
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter/Inter-Bold.ttf
+          weight: 700

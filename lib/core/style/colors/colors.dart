@@ -19,6 +19,6 @@ class AppColors {
   static const Color lightGray = Color(0xFFB7B7B7);
   static const Color red = Color(0xFFFF3B30);
   static const Color labelText = Color(0XFF9B9C9D);
-  static const Color secondaryBackgroundColor = Color(0xFF121212);
+  static const Color secondaryBackgroundColor = Color(0xFFF4F7FC);
   static const Color lightScaffoldBackgroundColor = Color(0xFFFFFFFF);
 }

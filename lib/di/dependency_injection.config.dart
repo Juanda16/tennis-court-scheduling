@@ -71,8 +71,6 @@ import 'package:tennis_court_scheduling/scheduling/infrastructure/repositories/u
     as _i657;
 import 'package:tennis_court_scheduling/scheduling/infrastructure/repositories/weather_repository.dart'
     as _i322;
-import 'package:tennis_court_scheduling/scheduling/presentation/cubit/home_cubit/home_cubit.dart'
-    as _i159;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -85,7 +83,6 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i159.HomeCubit>(() => _i159.HomeCubit());
     gh.singleton<_i867.IWeatherRemoteDatasource>(
         () => _i334.WeatherRemoteDatasource());
     gh.singleton<_i710.ILocationLocalDatasource>(

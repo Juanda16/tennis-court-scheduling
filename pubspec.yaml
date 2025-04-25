@@ -25,19 +25,35 @@ dependencies:
   equatable: ^2.0.5   # Value equality for objects
   dartz: ^0.10.1      # Functional programming utilities (Either, Option)
   get_it: ^7.6.7      # Dependency injection
+  injectable: ^2.5.0
 
   # Internationalization (i18n)
   slang: ^4.6.0          # i18n solution (likely with code generation)
   slang_flutter: ^4.6.0  # Flutter integration for slang
 
   # UI and other features
+  carousel_slider: ^5.0.0
   url_launcher: ^6.2.5 # Open external links (e.g., email)
+
+  geocoding: ^3.0.0
+  geolocator: ^12.0.0
+  google_fonts: ^6.2.0
+  http: ^1.2.1
+
+
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.1.3
+  provider: ^6.1.2
+
 
   # Code generation dependencies (for runtime annotations)
   freezed_annotation: ^3.0.0
   json_annotation: ^4.9.0
   flutter_svg: ^2.0.17
   cached_network_image: ^3.4.1
+  intl: ^0.19.0
+
 
 dev_dependencies:
   # Testing
@@ -51,9 +67,15 @@ dev_dependencies:
   freezed: ^3.0.4
   json_serializable: ^6.9.4
   slang_build_runner: ^4.6.0
+  hive_generator: ^2.0.1
+  hive_test: ^1.0.1
+  injectable_generator: ^2.7.0
 
   # Code quality and linting
   flutter_lints: ^3.0.0 # Recommended lints for Flutter projects
+
+dependency_overrides:
+  source_gen: 2.0.0
 
 flutter:
   uses-material-design: true # Enables Material Design
@@ -62,6 +84,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/social_media/
+    - assets/icons/
+    - assets/json/
 
   fonts:
     - family: Poppins

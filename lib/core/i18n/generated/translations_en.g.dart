@@ -39,8 +39,63 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
 
 	// Translations
-	String get name => 'Juan Arismendy';
+	late final TranslationsOnboardingEn onboarding = TranslationsOnboardingEn._(_root);
+	late final TranslationsLoginEn login = TranslationsLoginEn._(_root);
+	late final TranslationsRegisterEn register = TranslationsRegisterEn._(_root);
 	late final TranslationsHomePageEn home_page = TranslationsHomePageEn._(_root);
+	late final TranslationsBookPageEn book_page = TranslationsBookPageEn._(_root);
+}
+
+// Path: onboarding
+class TranslationsOnboardingEn {
+	TranslationsOnboardingEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get login => 'Login';
+	String get register => 'Register';
+}
+
+// Path: login
+class TranslationsLoginEn {
+	TranslationsLoginEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get login => 'Login';
+	String get email => 'Email';
+	String get password => 'Password';
+	String get remember_me => 'Remember Me';
+	String get remember_password => 'Remember Password';
+	String get forgot_password => 'Forgot Password?';
+	String get login_button => 'Login';
+	String get no_account => 'Don\'t have an account?';
+	String get register_here => 'Register here';
+	String get hint_email => 'anyEmail@mail.com';
+	String get hint_password => 'yourPassword';
+}
+
+// Path: register
+class TranslationsRegisterEn {
+	TranslationsRegisterEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get register => 'Register';
+	String get full_name => 'Full Name';
+	String get email => 'Email';
+	String get phone => 'Phone';
+	String get password => 'Password';
+	String get confirm_password => 'Confirm Password';
+	String get register_button => 'Register';
+	String get already_have_account => 'Already have an account?';
+	String get login_here => 'Login here';
+	String get hint_email => 'email@mail.com';
+	String get hint_password => 'password';
+	String get password_no_match => 'Passwords do not match';
 }
 
 // Path: home_page
@@ -51,38 +106,42 @@ class TranslationsHomePageEn {
 
 	// Translations
 	String get home => 'Home';
-	String get about => 'About';
-	String get about_me => 'About Me';
-	String get experience => 'Experience';
-	String get services => 'Services';
-	String get resume => 'Resume';
-	String get skills => 'Skills';
-	String get projects => 'Projects';
-	String get contact => 'Contact';
-	String get blog => 'Blog';
-	String get portfolio => 'Portfolio';
-	String get hire_me => 'Hire Me';
-	String get download_cv => 'Download Resume';
-	String get hello => 'HELLO, I\'m';
-	String get software_engineer => 'Software Engineer';
-	String get contact_me => 'Contact Me';
-	String get slogan => 'I like to make things happen';
-	String get special_services => 'Special Services';
-	String get development => 'Development';
-	TextSpan my_special_services({required InlineSpan specialServices, required InlineSpan development}) => TextSpan(children: [
-		const TextSpan(text: 'My '),
-		specialServices,
-		const TextSpan(text: ' For Your Business '),
-		development,
-	]);
-	String get professional_skills => 'Professional Skills';
-	String get my_skills => 'My Skills';
-	String get my_talents => 'My Talents';
-	String get latest_projects => 'Latest Projects';
-	TextSpan explore_projects({required InlineSpan Projects}) => TextSpan(children: [
-		const TextSpan(text: 'Explore My Popular '),
-		Projects,
-	]);
+	String get welcome => 'Welcome';
+	String get search => 'Search';
+	String get hello => 'Hello';
+	String get courts => 'Courts';
+	String get court_types => 'Court Type';
+	String get available => 'Available';
+	String get book_now => 'Book Now';
+	String get booked => 'Booked';
+}
+
+// Path: book_page
+class TranslationsBookPageEn {
+	TranslationsBookPageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get my_bookings => 'My Bookings';
+	String get court => 'Court';
+	String get date => 'Date';
+	String get booked_by => 'Booked By';
+	String get court_type => 'Court Type';
+	String get available => 'Available';
+	String get per_hour => 'Per Hour';
+	String get add_instructor => 'Add Instructor';
+	String get set_time_date => 'Set Time & Date';
+	String get start_time => 'Start Time';
+	String get end_time => 'End Time';
+	String get add_comment => 'Add Comment';
+	String get book_now => 'Book Now';
+	String get instructor => 'Instructor';
+	String get rebook => 'Rebook';
+	String get cancel => 'Cancel';
+	String get payment => 'Payment';
+	String get summary => 'Summary';
+	String get total_amount => 'Total Amount';
 }
 
 /// Flat map(s) containing all translations.
@@ -90,40 +149,59 @@ class TranslationsHomePageEn {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'name': return 'Juan Arismendy';
+			case 'onboarding.login': return 'Login';
+			case 'onboarding.register': return 'Register';
+			case 'login.login': return 'Login';
+			case 'login.email': return 'Email';
+			case 'login.password': return 'Password';
+			case 'login.remember_me': return 'Remember Me';
+			case 'login.remember_password': return 'Remember Password';
+			case 'login.forgot_password': return 'Forgot Password?';
+			case 'login.login_button': return 'Login';
+			case 'login.no_account': return 'Don\'t have an account?';
+			case 'login.register_here': return 'Register here';
+			case 'login.hint_email': return 'anyEmail@mail.com';
+			case 'login.hint_password': return 'yourPassword';
+			case 'register.register': return 'Register';
+			case 'register.full_name': return 'Full Name';
+			case 'register.email': return 'Email';
+			case 'register.phone': return 'Phone';
+			case 'register.password': return 'Password';
+			case 'register.confirm_password': return 'Confirm Password';
+			case 'register.register_button': return 'Register';
+			case 'register.already_have_account': return 'Already have an account?';
+			case 'register.login_here': return 'Login here';
+			case 'register.hint_email': return 'email@mail.com';
+			case 'register.hint_password': return 'password';
+			case 'register.password_no_match': return 'Passwords do not match';
 			case 'home_page.home': return 'Home';
-			case 'home_page.about': return 'About';
-			case 'home_page.about_me': return 'About Me';
-			case 'home_page.experience': return 'Experience';
-			case 'home_page.services': return 'Services';
-			case 'home_page.resume': return 'Resume';
-			case 'home_page.skills': return 'Skills';
-			case 'home_page.projects': return 'Projects';
-			case 'home_page.contact': return 'Contact';
-			case 'home_page.blog': return 'Blog';
-			case 'home_page.portfolio': return 'Portfolio';
-			case 'home_page.hire_me': return 'Hire Me';
-			case 'home_page.download_cv': return 'Download Resume';
-			case 'home_page.hello': return 'HELLO, I\'m';
-			case 'home_page.software_engineer': return 'Software Engineer';
-			case 'home_page.contact_me': return 'Contact Me';
-			case 'home_page.slogan': return 'I like to make things happen';
-			case 'home_page.special_services': return 'Special Services';
-			case 'home_page.development': return 'Development';
-			case 'home_page.my_special_services': return ({required InlineSpan specialServices, required InlineSpan development}) => TextSpan(children: [
-				const TextSpan(text: 'My '),
-				specialServices,
-				const TextSpan(text: ' For Your Business '),
-				development,
-			]);
-			case 'home_page.professional_skills': return 'Professional Skills';
-			case 'home_page.my_skills': return 'My Skills';
-			case 'home_page.my_talents': return 'My Talents';
-			case 'home_page.latest_projects': return 'Latest Projects';
-			case 'home_page.explore_projects': return ({required InlineSpan Projects}) => TextSpan(children: [
-				const TextSpan(text: 'Explore My Popular '),
-				Projects,
-			]);
+			case 'home_page.welcome': return 'Welcome';
+			case 'home_page.search': return 'Search';
+			case 'home_page.hello': return 'Hello';
+			case 'home_page.courts': return 'Courts';
+			case 'home_page.court_types': return 'Court Type';
+			case 'home_page.available': return 'Available';
+			case 'home_page.book_now': return 'Book Now';
+			case 'home_page.booked': return 'Booked';
+			case 'book_page.my_bookings': return 'My Bookings';
+			case 'book_page.court': return 'Court';
+			case 'book_page.date': return 'Date';
+			case 'book_page.booked_by': return 'Booked By';
+			case 'book_page.court_type': return 'Court Type';
+			case 'book_page.available': return 'Available';
+			case 'book_page.per_hour': return 'Per Hour';
+			case 'book_page.add_instructor': return 'Add Instructor';
+			case 'book_page.set_time_date': return 'Set Time & Date';
+			case 'book_page.start_time': return 'Start Time';
+			case 'book_page.end_time': return 'End Time';
+			case 'book_page.add_comment': return 'Add Comment';
+			case 'book_page.book_now': return 'Book Now';
+			case 'book_page.instructor': return 'Instructor';
+			case 'book_page.rebook': return 'Rebook';
+			case 'book_page.cancel': return 'Cancel';
+			case 'book_page.payment': return 'Payment';
+			case 'book_page.summary': return 'Summary';
+			case 'book_page.total_amount': return 'Total Amount';
 			default: return null;
 		}
 	}

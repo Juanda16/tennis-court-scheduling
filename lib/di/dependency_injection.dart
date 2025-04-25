@@ -1,10 +1,8 @@
 import 'package:get_it/get_it.dart';
+import 'package:injectable/injectable.dart';
+import 'package:tennis_court_scheduling/di/dependency_injection.config.dart';
 
-final GetIt sl = GetIt.instance; // Service Locator
+final GetIt getIt = GetIt.instance; // Service Locator
 
-void init() {
-  // Features - Portfolio
-  // Cubit
-  // Core (if any common utilities need registration)
-  // External (like http client if you fetch data later)
-}
+@InjectableInit()
+void configureDependencies() => getIt.init();

@@ -1,0 +1,7 @@
+base_locale: en
+input_directory: lib/core/i18n
+input_file_pattern: .json
+output_directory: lib/core/i18n/generated
+output_file_name: translations.g.dart
+translate_var: translate
+

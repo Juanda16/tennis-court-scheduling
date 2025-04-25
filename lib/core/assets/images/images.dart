@@ -2,10 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// [naming] TP: TokenPad
-
 class Images {
-  static String get logoPath => 'assets/images/logo.svg';
+  static String get logoPath => 'assets/images/logo.png';
   static String get logoWhite => 'assets/images/logo_white.svg';
   static String get isotypePath => 'assets/images/isotype.svg';
   static String get myPicture => 'assets/images/my_picture.png';
@@ -17,6 +15,9 @@ class Images {
 
   static String get defaultToken => 'assets/images/default.png';
   static String get platform => 'assets/icons/platform.png';
+  static String get defaultAvatar => 'assets/images/default_avatar.png';
+  static String get onboardingImage => 'assets/images/onboarding.png';
+  static String get headerImage => 'assets/images/header.png';
 
   static Widget _defaultLogoImage(double size) => Image(
         image: AssetImage(defaultToken),

@@ -44,6 +44,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsRegisterEn register = TranslationsRegisterEn._(_root);
 	late final TranslationsHomePageEn home_page = TranslationsHomePageEn._(_root);
 	late final TranslationsBookPageEn book_page = TranslationsBookPageEn._(_root);
+	late final TranslationsFavoritePageEn favorite_page = TranslationsFavoritePageEn._(_root);
 }
 
 // Path: onboarding
@@ -123,6 +124,7 @@ class TranslationsBookPageEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String get bookings => 'Bookings';
 	String get my_bookings => 'My Bookings';
 	String get court => 'Court';
 	String get date => 'Date';
@@ -144,6 +146,20 @@ class TranslationsBookPageEn {
 	String get total_amount => 'Total Amount';
 	String get rain_chance => 'Rain Chance';
 	String get already_booked => 'Already Booked with this date';
+}
+
+// Path: favorite_page
+class TranslationsFavoritePageEn {
+	TranslationsFavoritePageEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get favorite => 'Favorite';
+	String get my_favorites => 'My Favorites';
+	String get no_favorites => 'You have no favorite courts';
+	String get add_to_favorites => 'Add to Favorites';
+	String get remove_from_favorites => 'Remove from Favorites';
 }
 
 /// Flat map(s) containing all translations.
@@ -185,6 +201,7 @@ extension on Translations {
 			case 'home_page.available': return 'Available';
 			case 'home_page.book_now': return 'Book Now';
 			case 'home_page.booked': return 'Booked';
+			case 'book_page.bookings': return 'Bookings';
 			case 'book_page.my_bookings': return 'My Bookings';
 			case 'book_page.court': return 'Court';
 			case 'book_page.date': return 'Date';
@@ -206,6 +223,11 @@ extension on Translations {
 			case 'book_page.total_amount': return 'Total Amount';
 			case 'book_page.rain_chance': return 'Rain Chance';
 			case 'book_page.already_booked': return 'Already Booked with this date';
+			case 'favorite_page.favorite': return 'Favorite';
+			case 'favorite_page.my_favorites': return 'My Favorites';
+			case 'favorite_page.no_favorites': return 'You have no favorite courts';
+			case 'favorite_page.add_to_favorites': return 'Add to Favorites';
+			case 'favorite_page.remove_from_favorites': return 'Remove from Favorites';
 			default: return null;
 		}
 	}

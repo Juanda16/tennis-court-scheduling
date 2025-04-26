@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/views/schedule/widgets/my_schedule_list.dart';
 
 import '../../../../../core/style/style.dart';
@@ -11,12 +12,12 @@ class ScheduleView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: const EdgeInsets.all(33),
+      padding: const EdgeInsets.all(16),
       child: ListView(
         shrinkWrap: true,
         children: [
           CustomText(
-            'Mis Reservas',
+            translate.book_page.my_bookings,
             style: CustomTextStyles.customTextStylePoppins(
               fontSize: 20,
               fontWeight: FontWeight.bold,

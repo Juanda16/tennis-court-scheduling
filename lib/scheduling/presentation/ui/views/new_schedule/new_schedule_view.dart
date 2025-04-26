@@ -20,7 +20,7 @@ class NewScheduleView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FieldCarousel(images: field.images ?? []),
+            FieldCarousel(court: field),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 33.0),

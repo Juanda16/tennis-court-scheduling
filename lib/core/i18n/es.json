@@ -42,6 +42,7 @@
         "booked": "Reservado"
     },
     "book_page": {
+        "bookings": "Reservas",
         "my_bookings": "Mis reservas",
         "court": "Cancha",
         "date": "Fecha",
@@ -63,5 +64,12 @@
         "total_amount": "Total a pagar",
         "rain_chance": "Probabilidad de lluvia",
         "already_booked": "Ya existe una cita en esta fecha"
+    },
+    "favorite_page": {
+        "favorite": "Favoritos",
+        "my_favorites": "Mis favoritos",
+        "no_favorites": "Aún no tienes canchas favoritas",
+        "add_to_favorites": "Agregar a favoritos",
+        "remove_from_favorites": "Remover de favoritos"
     }
 }

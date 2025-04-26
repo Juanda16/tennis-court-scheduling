@@ -41,6 +41,7 @@ class TranslationsEs implements Translations {
 	@override late final _TranslationsRegisterEs register = _TranslationsRegisterEs._(_root);
 	@override late final _TranslationsHomePageEs home_page = _TranslationsHomePageEs._(_root);
 	@override late final _TranslationsBookPageEs book_page = _TranslationsBookPageEs._(_root);
+	@override late final _TranslationsFavoritePageEs favorite_page = _TranslationsFavoritePageEs._(_root);
 }
 
 // Path: onboarding
@@ -120,6 +121,7 @@ class _TranslationsBookPageEs implements TranslationsBookPageEn {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get bookings => 'Reservas';
 	@override String get my_bookings => 'Mis reservas';
 	@override String get court => 'Cancha';
 	@override String get date => 'Fecha';
@@ -141,6 +143,20 @@ class _TranslationsBookPageEs implements TranslationsBookPageEn {
 	@override String get total_amount => 'Total a pagar';
 	@override String get rain_chance => 'Probabilidad de lluvia';
 	@override String get already_booked => 'Ya existe una cita en esta fecha';
+}
+
+// Path: favorite_page
+class _TranslationsFavoritePageEs implements TranslationsFavoritePageEn {
+	_TranslationsFavoritePageEs._(this._root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get favorite => 'Favoritos';
+	@override String get my_favorites => 'Mis favoritos';
+	@override String get no_favorites => 'Aún no tienes canchas favoritas';
+	@override String get add_to_favorites => 'Agregar a favoritos';
+	@override String get remove_from_favorites => 'Remover de favoritos';
 }
 
 /// Flat map(s) containing all translations.
@@ -182,6 +198,7 @@ extension on TranslationsEs {
 			case 'home_page.available': return 'Disponible';
 			case 'home_page.book_now': return 'Reservar ahora';
 			case 'home_page.booked': return 'Reservado';
+			case 'book_page.bookings': return 'Reservas';
 			case 'book_page.my_bookings': return 'Mis reservas';
 			case 'book_page.court': return 'Cancha';
 			case 'book_page.date': return 'Fecha';
@@ -203,6 +220,11 @@ extension on TranslationsEs {
 			case 'book_page.total_amount': return 'Total a pagar';
 			case 'book_page.rain_chance': return 'Probabilidad de lluvia';
 			case 'book_page.already_booked': return 'Ya existe una cita en esta fecha';
+			case 'favorite_page.favorite': return 'Favoritos';
+			case 'favorite_page.my_favorites': return 'Mis favoritos';
+			case 'favorite_page.no_favorites': return 'Aún no tienes canchas favoritas';
+			case 'favorite_page.add_to_favorites': return 'Agregar a favoritos';
+			case 'favorite_page.remove_from_favorites': return 'Remover de favoritos';
 			default: return null;
 		}
 	}

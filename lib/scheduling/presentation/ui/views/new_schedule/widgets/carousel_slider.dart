@@ -1,11 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tennis_court_scheduling/core/style/style.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/entities/court_model.dart';
+import 'package:tennis_court_scheduling/scheduling/presentation/provider/favorites_provider.dart';
 
 class FieldCarousel extends StatefulWidget {
-  final List<FieldImage> images;
-  const FieldCarousel({super.key, required this.images});
+  final CourtModel court;
+
+  const FieldCarousel({super.key, required this.court});
 
   @override
   State<FieldCarousel> createState() => _FieldCarouselState();
@@ -16,10 +19,13 @@ class _FieldCarouselState extends State<FieldCarousel> {
   final CarouselSliderController _controller = CarouselSliderController();
   @override
   Widget build(BuildContext context) {
+    final favoritesProvider = Provider.of<FavoritesProvider>(context);
+    final isFavorite = favoritesProvider.isFavorite(widget.court);
+
     return Stack(
       children: [
         CarouselSlider(
-          items: widget.images.map((image) {
+          items: widget.court.images?.map((image) {
             return Image.asset(image.url ?? '', fit: BoxFit.cover);
           }).toList(),
           carouselController: _controller,
@@ -41,9 +47,11 @@ class _FieldCarouselState extends State<FieldCarousel> {
           right: 0,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: widget.images.asMap().entries.map((entry) {
+            children: widget.court.images!.asMap().entries.map((entry) {
               return GestureDetector(
-                onTap: () => _controller.animateToPage(entry.key),
+                onTap: () {
+                  _controller.animateToPage(entry.key);
+                },
                 child: Container(
                   width: 15,
                   height: 15,
@@ -96,13 +104,13 @@ class _FieldCarouselState extends State<FieldCarousel> {
             child: Center(
               //favorite icon
               child: IconButton(
-                icon: const Icon(
-                  Icons.favorite_border,
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
                   color: AppColors.white,
                   size: 30,
                 ),
                 onPressed: () {
-                  // Handle favorite action
+                  favoritesProvider.toggleFavorite(widget.court);
                 },
               ),
             ),

@@ -13,6 +13,7 @@ import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_user_use_case.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_weather_by_coordinates.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/set_current_user.dart';
+import 'package:tennis_court_scheduling/scheduling/presentation/provider/favorites_provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/user_provider.dart';
 
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
               di.getIt<IAuthenticateUserUseCase>(),
             ),
           ),
+          ChangeNotifierProvider(create: (context) => FavoritesProvider()),
         ],
         child: MaterialApp.router(
           locale: TranslationProvider.of(context).flutterLocale,

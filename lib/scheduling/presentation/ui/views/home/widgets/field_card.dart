@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/entities/entities.dart';
 
 import '../../../../../../core/style/style.dart';
@@ -88,7 +89,7 @@ class FieldCard extends StatelessWidget {
                 Row(
                   children: [
                     CustomText(
-                      'Disponible: ',
+                      '${translate.home_page.available}: ',
                       style: CustomTextStyles.customTextStylePoppins(
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
@@ -103,7 +104,7 @@ class FieldCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 5),
                     CustomText(
-                      'a',
+                      '-',
                       style: CustomTextStyles.customTextStylePoppins(
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
@@ -126,9 +127,9 @@ class FieldCard extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                         onPressed: () {
-                          context.go('/new-schedule/${field.id}');
+                          context.push('/new-schedule/${field.id}');
                         },
-                        child: const Text('Reservar')),
+                        child: Text(translate.home_page.book_now)),
                   ),
                 ),
               ],

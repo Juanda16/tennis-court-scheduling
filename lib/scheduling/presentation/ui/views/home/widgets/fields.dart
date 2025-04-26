@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/entities/court_model.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/provider.dart';
 
@@ -7,8 +8,8 @@ import '../../../../../../core/style/style.dart';
 import '../../../widgets/custom_text.dart';
 import 'field_card.dart';
 
-class FieldList extends StatelessWidget {
-  const FieldList({super.key});
+class CourtList extends StatelessWidget {
+  const CourtList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class FieldList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(
-              'Canchas',
+              translate.home_page.courts,
               style: CustomTextStyles.customTextStylePoppins(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tennis_court_scheduling/core/assets/images/images.dart';
+import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/user_provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/views/home/widgets/fields.dart';
@@ -67,7 +68,7 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
             child: CustomText(
-              "Hola, $currentUser!",
+              "${translate.home_page.hello}, $currentUser!",
               style: CustomTextStyles.customTextStylePoppins(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -75,7 +76,7 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           const SizedBox(height: 20),
-          const FieldList(),
+          const CourtList(),
           const SizedBox(height: 20),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),

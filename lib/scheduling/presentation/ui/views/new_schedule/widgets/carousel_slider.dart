@@ -101,7 +101,9 @@ class _FieldCarouselState extends State<FieldCarousel> {
                   color: AppColors.white,
                   size: 30,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  // Handle favorite action
+                },
               ),
             ),
           ),

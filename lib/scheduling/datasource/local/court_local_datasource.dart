@@ -44,14 +44,11 @@ class CourtLocalDataSource implements ICourtLocalDatasource {
   Future<List<CourtModel>> getAllCourts() async {
     try {
       final String response =
-          await rootBundle.loadString('assets/json/mock_field.json');
+          await rootBundle.loadString('assets/json/mock_courts.json');
 
       return (json.decode(response) as List)
           .map((data) => CourtModel.fromJson(data))
           .toList();
-
-      // final data = await _database.readAll(table: _courtsTableName);
-      // return data.map((court) => CourtModel.fromJson(court)).toList();
     } catch (e) {
       throw Exception('Failed to get all courts: $e');
     }

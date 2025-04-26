@@ -142,6 +142,8 @@ class TranslationsBookPageEn {
 	String get payment => 'Payment';
 	String get summary => 'Summary';
 	String get total_amount => 'Total Amount';
+	String get rain_chance => 'Rain Chance';
+	String get already_booked => 'Already Booked with this date';
 }
 
 /// Flat map(s) containing all translations.
@@ -202,6 +204,8 @@ extension on Translations {
 			case 'book_page.payment': return 'Payment';
 			case 'book_page.summary': return 'Summary';
 			case 'book_page.total_amount': return 'Total Amount';
+			case 'book_page.rain_chance': return 'Rain Chance';
+			case 'book_page.already_booked': return 'Already Booked with this date';
 			default: return null;
 		}
 	}

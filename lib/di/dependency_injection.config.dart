@@ -35,6 +35,8 @@ import 'package:tennis_court_scheduling/scheduling/domain/repository_contracts/i
     as _i608;
 import 'package:tennis_court_scheduling/scheduling/domain/repository_contracts/i_weather_respository.dart'
     as _i67;
+import 'package:tennis_court_scheduling/scheduling/domain/use_cases/authenticate_user.dart'
+    as _i897;
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/book_court.dart'
     as _i947;
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/cancel_reservation.dart'
@@ -49,8 +51,12 @@ import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_all_rese
     as _i437;
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_location.dart'
     as _i304;
+import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_user_use_case.dart'
+    as _i525;
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_weather_by_coordinates.dart'
     as _i806;
+import 'package:tennis_court_scheduling/scheduling/domain/use_cases/set_current_user.dart'
+    as _i89;
 import 'package:tennis_court_scheduling/scheduling/infrastructure/datasource_contracts/i_court_local_datasource.dart'
     as _i326;
 import 'package:tennis_court_scheduling/scheduling/infrastructure/datasource_contracts/i_location_local_datasource.dart'
@@ -118,8 +124,14 @@ extension GetItInjectableX on _i174.GetIt {
         _i437.GetAllReservationsUseCase(gh<_i219.IReservationRepository>()));
     gh.singleton<_i806.IGetWeatherByCoordinates>(
         () => _i806.GetWeatherByCoordinates(gh<_i67.IWeatherRepository>()));
+    gh.factory<_i897.IAuthenticateUserUseCase>(
+        () => _i897.AuthenticateUserUseCase(gh<_i608.IUserRepository>()));
     gh.singleton<_i878.ICreateUser>(
         () => _i878.CreateUser(gh<_i608.IUserRepository>()));
+    gh.factory<_i525.IGetCurrentUserUseCase>(
+        () => _i525.GetCurrentUserUseCase(gh<_i608.IUserRepository>()));
+    gh.factory<_i89.ISetCurrentUserUseCase>(
+        () => _i89.SetCurrentUserUseCase(gh<_i608.IUserRepository>()));
     return this;
   }
 }

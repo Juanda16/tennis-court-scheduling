@@ -105,4 +105,26 @@ class HiveDatabase implements IBaseDatabase {
       throw Exception('Failed to read all data from table $table: $e');
     }
   }
+
+  @override
+  Future<Map<String, dynamic>?> readWhere(
+      {required String table,
+      required String field,
+      required String value}) async {
+    try {
+      final allData = _box.values
+          .where((data) => data is Map<String, dynamic>)
+          .cast<Map<String, dynamic>>()
+          .toList();
+
+      for (var data in allData) {
+        if (data[field] == value) {
+          return data;
+        }
+      }
+      return null;
+    } catch (e) {
+      throw Exception('Failed to read data from table $table: $e');
+    }
+  }
 }

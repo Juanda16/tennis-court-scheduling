@@ -60,4 +60,49 @@ class UserLocalDataSource implements IUserLocalDataSource {
 
   /// The name of the table used to store users.
   static const String _usersTableName = 'users';
+
+  @override
+  Future<User> getCurrentUser() async {
+    try {
+      final user = await _database.read(
+        table: _usersTableName,
+        id: 'current_user',
+      );
+      if (user == null) {
+        throw Exception('No current user found');
+      }
+      return User.fromJson(user);
+    } catch (e) {
+      throw Exception('Failed to get current user: $e');
+    }
+  }
+
+  @override
+  Future<User> setCurrentUser(User user) async {
+    try {
+      await _database.create(
+        table: _usersTableName,
+        mapWithId: MapWithId(id: 'current_user', map: user.toJson()),
+      );
+      return user;
+    } catch (e) {
+      throw Exception('Failed to set current user: $e');
+    }
+  }
+
+  @override
+  Future<User?> getCurrentUserByEmail(String email) async {
+    try {
+      final user = await _database.read(
+        table: _usersTableName,
+        id: email,
+      );
+      if (user == null) {
+        return null;
+      }
+      return User.fromJson(user);
+    } catch (e) {
+      throw Exception('Failed to get current user by email: $e');
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/core/style/style.dart'
     show AppColors, CustomTextStyles;
 import 'package:tennis_court_scheduling/core/utils/date_utils.dart';
@@ -36,7 +37,6 @@ class NewScheduleView extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      //price per hour of the field
                       CustomText(
                         '\$${field.price ?? ''}',
                         style: CustomTextStyles.customTextStylePoppins(
@@ -59,7 +59,7 @@ class NewScheduleView extends StatelessWidget {
                         ),
                       ),
                       CustomText(
-                        'por hora',
+                        translate.book_page.per_hour,
                         style: CustomTextStyles.customTextStylePoppins(
                           fontSize: 14,
                           color: AppColors.gray,
@@ -71,7 +71,7 @@ class NewScheduleView extends StatelessWidget {
                   Row(
                     children: [
                       CustomText(
-                        'Disponible: ',
+                        "${translate.book_page.available}: ",
                         style: CustomTextStyles.customTextStylePoppins(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
@@ -86,7 +86,7 @@ class NewScheduleView extends StatelessWidget {
                       ),
                       const SizedBox(width: 5),
                       CustomText(
-                        'a',
+                        '-',
                         style: CustomTextStyles.customTextStylePoppins(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,

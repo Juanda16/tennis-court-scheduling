@@ -139,6 +139,8 @@ class _TranslationsBookPageEs implements TranslationsBookPageEn {
 	@override String get payment => 'Pago';
 	@override String get summary => 'Resumen';
 	@override String get total_amount => 'Total a pagar';
+	@override String get rain_chance => 'Probabilidad de lluvia';
+	@override String get already_booked => 'Ya existe una cita en esta fecha';
 }
 
 /// Flat map(s) containing all translations.
@@ -199,6 +201,8 @@ extension on TranslationsEs {
 			case 'book_page.payment': return 'Pago';
 			case 'book_page.summary': return 'Resumen';
 			case 'book_page.total_amount': return 'Total a pagar';
+			case 'book_page.rain_chance': return 'Probabilidad de lluvia';
+			case 'book_page.already_booked': return 'Ya existe una cita en esta fecha';
 			default: return null;
 		}
 	}

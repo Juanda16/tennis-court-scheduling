@@ -16,15 +16,15 @@ Widget timePicker(
       hintText: 'Seleccione hora',
       labelText: hint,
       filled: true,
-      enabledBorder: OutlineInputBorder(
+      enabledBorder: const OutlineInputBorder(
         borderSide:
             BorderSide(color: AppColors.secondaryBackgroundColor, width: 1.0),
       ),
-      border: OutlineInputBorder(
+      border: const OutlineInputBorder(
         borderSide:
             BorderSide(color: AppColors.secondaryBackgroundColor, width: 1.0),
       ),
-      focusedBorder: OutlineInputBorder(
+      focusedBorder: const OutlineInputBorder(
         borderSide:
             BorderSide(color: AppColors.secondaryBackgroundColor, width: 1.0),
       ),

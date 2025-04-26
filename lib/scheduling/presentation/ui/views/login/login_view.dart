@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:tennis_court_scheduling/core/assets/images/images.dart';
 import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/core/routing/app_router.dart';
 import 'package:tennis_court_scheduling/core/style/style.dart';
 import 'package:tennis_court_scheduling/core/utils/validators.dart';
+import 'package:tennis_court_scheduling/scheduling/presentation/provider/user_provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/widgets/custom_text.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/widgets/custom_text_form_field.dart';
 
@@ -212,11 +214,37 @@ class _LoginViewState extends State<LoginView> {
                       height: 50,
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           //login
+
                           if (_formKey.currentState!.validate()) {
-                            GoRouter.of(context)
-                                .clearStackAndNavigate('/dashboard');
+                            final bool login = await Provider.of<UserProvider>(
+                                    context,
+                                    listen: false)
+                                .authenticateUser(emailController.text,
+                                    passwordController.text);
+
+                            if (login) {
+                              //navigate to dashboard go router
+                              GoRouter.of(context)
+                                  .clearStackAndNavigate('/dashboard');
+                            } else {
+                              //show error message
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: CustomText(
+                                    translate.login.forgot_password,
+                                    style:
+                                        CustomTextStyles.customTextStylePoppins(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                  backgroundColor: AppColors.red,
+                                ),
+                              );
+                            }
                           }
                         },
                         child: CustomText(translate.login.login_button,

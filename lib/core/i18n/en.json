@@ -60,6 +60,9 @@
     "cancel": "Cancel",
     "payment": "Payment",
     "summary": "Summary",
-    "total_amount": "Total Amount"
+    "total_amount": "Total Amount",
+    "rain_chance": "Rain Chance",
+    "already_booked": "Already Booked with this date"
+
   }
 }

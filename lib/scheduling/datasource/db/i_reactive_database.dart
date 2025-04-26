@@ -88,4 +88,10 @@ abstract class IBaseDatabase {
   Future<List<Map<String, dynamic>>> readAll({
     required String table,
   });
+
+  Future<Map<String, dynamic>?> readWhere({
+    required String table,
+    required String field,
+    required String value,
+  });
 }

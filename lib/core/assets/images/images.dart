@@ -18,6 +18,7 @@ class Images {
   static String get defaultAvatar => 'assets/images/default_avatar.png';
   static String get onboardingImage => 'assets/images/onboarding.png';
   static String get headerImage => 'assets/images/header.png';
+  static String get defaultUser => 'assets/images/user.png';
 
   static Widget _defaultLogoImage(double size) => Image(
         image: AssetImage(defaultToken),

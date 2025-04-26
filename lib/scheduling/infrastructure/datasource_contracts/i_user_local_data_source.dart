@@ -15,4 +15,13 @@ abstract interface class IUserLocalDataSource {
   ///
   /// Requires a [user] instance for updating the user.
   Future<User> updateUser(User user);
+
+  /// Retrieves the current user from the local data source.
+  Future<User> getCurrentUser();
+
+  /// Set the current user in the local data source.
+  Future<User> setCurrentUser(User user);
+
+  /// Retrieves the current user from the local data source by email.
+  Future<User?> getCurrentUserByEmail(String email);
 }

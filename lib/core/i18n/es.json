@@ -60,6 +60,8 @@
         "cancel": "Cancelar",
         "payment": "Pago",
         "summary": "Resumen",
-        "total_amount": "Total a pagar"
+        "total_amount": "Total a pagar",
+        "rain_chance": "Probabilidad de lluvia",
+        "already_booked": "Ya existe una cita en esta fecha"
     }
 }

@@ -15,4 +15,11 @@ abstract interface class IUserRepository {
   ///
   /// Requires a [user] instance for updating the user.
   Future<User> updateUser(User user);
+
+  Future<User> getCurrentUser();
+
+  Future<User> setCurrentUser(User user);
+
+  /// Retrieves the current user from the repository by email.
+  Future<User?> getCurrentUserByEmail(String email);
 }

@@ -25,4 +25,19 @@ class UserRepository implements IUserRepository {
   Future<User> updateUser(User user) async {
     return await _userLocalDataSource.updateUser(user);
   }
+
+  @override
+  Future<User> getCurrentUser() async {
+    return await _userLocalDataSource.getCurrentUser();
+  }
+
+  @override
+  Future<User?> getCurrentUserByEmail(String email) async {
+    return await _userLocalDataSource.getCurrentUserByEmail(email);
+  }
+
+  @override
+  Future<User> setCurrentUser(User user) async {
+    return await _userLocalDataSource.setCurrentUser(user);
+  }
 }

@@ -74,7 +74,7 @@ class _FieldCarouselState extends State<FieldCarousel> {
             child: Center(
               //back icon
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back,
                   color: AppColors.white,
                   size: 20,

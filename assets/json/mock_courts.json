@@ -8,7 +8,7 @@
     "lat": 37.3327772,
     "lon": -122.0079593,
     "price": 25,
-    "locationName": "Caracas, Venezuela",
+    "locationName": "Chicago, USA",
     "date": "2024-07-13",
     "instructorList": [
       {
@@ -34,14 +34,14 @@
   },
   {
     "id": "2",
-    "name": "Cancha B",
+    "name": "Export Box",
     "type": "Tipo B",
     "availableFrom": "08:00",
     "availableTo": "22:00",
     "lat": 37.3327772,
     "lon": -122.0079593,
     "price": 100,
-    "locationName": "Caracas, Venezuela",
+    "locationName": "Chicago, USA",
     "instructorList": [
       {
         "id": 1,
@@ -54,10 +54,10 @@
     ],
     "images": [
       {
-        "url": "assets/images/field-1.png"
+        "url": "assets/images/field-2.png"
       },
       {
-        "url": "assets/images/field-2.png"
+        "url": "assets/images/field-1.png"
       },
       {
         "url": "assets/images/field-3.png"
@@ -66,14 +66,14 @@
   },
   {
     "id": "3",
-    "name": "Cancha C",
-    "type": "Tipo C",
+    "name": "Cancha Multiple",
+    "type": "Tipo A",
     "availableFrom": "08:00",
     "availableTo": "22:00",
     "lat": 37.3327772,
     "lon": -122.0079593,
     "price": 150,
-    "locationName": "Caracas, Venezuela",
+    "locationName": "Chicago, USA",
     "instructorList": [
       {
         "id": 1,
@@ -86,46 +86,15 @@
     ],
     "images": [
       {
-        "url": "assets/images/field-1.png"
-      },
-      {
-        "url": "assets/images/field-2.png"
-      },
-      {
         "url": "assets/images/field-3.png"
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "name": "Cancha D",
-    "type": "Tipo D",
-    "availableFrom": "08:00",
-    "availableTo": "22:00",
-    "lat": 0,
-    "lon": 0,
-    "price": 200,
-    "locationName": "Caracas, Venezuela",
-    "instructorList": [
-      {
-        "id": 1,
-        "name": "Instructor A"
       },
-      {
-        "id": 2,
-        "name": "Instructor B"
-      }
-    ],
-    "images": [
       {
         "url": "assets/images/field-1.png"
       },
       {
         "url": "assets/images/field-2.png"
-      },
-      {
-        "url": "assets/images/field-3.png"
       }
     ]
   }
+
 ]

@@ -3,13 +3,18 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/entities/schedule_model.dart';
+import 'package:tennis_court_scheduling/scheduling/domain/use_cases/authenticate_user.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/book_court.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/cancel_reservation.dart';
+import 'package:tennis_court_scheduling/scheduling/domain/use_cases/create_user.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_all_courts.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_all_reservations_use_case.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_location.dart';
+import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_user_use_case.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_weather_by_coordinates.dart';
+import 'package:tennis_court_scheduling/scheduling/domain/use_cases/set_current_user.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/provider.dart';
+import 'package:tennis_court_scheduling/scheduling/presentation/provider/user_provider.dart';
 
 import 'core/i18n/generated/translations.g.dart';
 import 'core/routing/app_router.dart';
@@ -56,6 +61,14 @@ class MyApp extends StatelessWidget {
           ),
           ChangeNotifierProvider(
             create: (context) => BottomNavigationBarProvider(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => UserProvider(
+              di.getIt<IGetCurrentUserUseCase>(),
+              di.getIt<ISetCurrentUserUseCase>(),
+              di.getIt<ICreateUser>(),
+              di.getIt<IAuthenticateUserUseCase>(),
+            ),
           ),
         ],
         child: MaterialApp.router(

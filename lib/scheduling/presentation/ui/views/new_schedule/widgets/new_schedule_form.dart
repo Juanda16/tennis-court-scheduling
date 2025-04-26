@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/core/routing/app_router.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/provider.dart';
+import 'package:tennis_court_scheduling/scheduling/presentation/provider/user_provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/views/new_schedule/widgets/time_picker.dart';
 
 import '../../../../../../core/style/style.dart';
@@ -20,18 +22,20 @@ class NewScheduleForm extends StatefulWidget {
 }
 
 class _NewScheduleFormState extends State<NewScheduleForm> {
-  TextEditingController _username = TextEditingController();
+  // final TextEditingController _username = TextEditingController();
   late TextEditingController _rainProb;
-  TextEditingController _date = TextEditingController();
-  TextEditingController _timeInit = TextEditingController();
-  TextEditingController _timeEnd = TextEditingController();
-  TextEditingController _comment = TextEditingController();
+  final TextEditingController _date = TextEditingController();
+  final TextEditingController _timeInit = TextEditingController();
+  final TextEditingController _timeEnd = TextEditingController();
+  final TextEditingController _comment = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  void initState() {
-    _rainProb = TextEditingController();
 
+  @override
+  void initState() {
     super.initState();
+    _rainProb = TextEditingController();
+    _date.text = DateTime.now().toString().substring(0, 10);
   }
 
   @override
@@ -45,7 +49,7 @@ class _NewScheduleFormState extends State<NewScheduleForm> {
 
   @override
   void dispose() {
-    _username.dispose();
+    // _username.dispose();
     _rainProb.dispose();
     _date.dispose();
     _timeInit.dispose();
@@ -66,19 +70,19 @@ class _NewScheduleFormState extends State<NewScheduleForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(
-              'Establecer fecha y hora',
+              translate.book_page.set_time_date,
               style: CustomTextStyles.customTextStylePoppins(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 10),
-            dateSelector(context, _date, 'Fecha'),
+            dateSelector(context, _date, translate.book_page.date),
             const SizedBox(height: 10),
             CustomTextField(
               controller: _rainProb,
-              hintText: 'Probabilidad de lluvia',
-              labelText: 'Probabilidad de lluvia',
+              hintText: translate.book_page.rain_chance,
+              labelText: translate.book_page.rain_chance,
               readOnly: true,
               prefixIcon: SizedBox(
                 width: 40,
@@ -109,17 +113,19 @@ class _NewScheduleFormState extends State<NewScheduleForm> {
             Row(
               children: [
                 Expanded(
-                  child: timePicker(context, _timeInit, 'Hora de inicio'),
+                  child: timePicker(
+                      context, _timeInit, translate.book_page.start_time),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: timePicker(context, _timeEnd, 'Hora de fin'),
+                  child: timePicker(
+                      context, _timeEnd, translate.book_page.end_time),
                 ),
               ],
             ),
             const SizedBox(height: 30),
             CustomText(
-              'Agregar comentario',
+              translate.book_page.add_comment,
               style: CustomTextStyles.customTextStylePoppins(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -130,42 +136,42 @@ class _NewScheduleFormState extends State<NewScheduleForm> {
             TextFormField(
               controller: _comment,
               maxLines: 5,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 filled: true,
                 fillColor: AppColors.lightScaffoldBackgroundColor,
-                hintText: 'Escribe un comentario',
-                labelText: 'Comentario',
-                hintStyle: TextStyle(color: Colors.grey),
-                labelStyle: TextStyle(color: Colors.grey),
+                hintText: translate.book_page.add_comment,
+                labelText: translate.book_page.add_comment,
+                hintStyle: const TextStyle(color: Colors.grey),
+                labelStyle: const TextStyle(color: Colors.grey),
                 // border only bottom
-                border: UnderlineInputBorder(),
+                border: const UnderlineInputBorder(),
                 // border all side
-                errorBorder: OutlineInputBorder(
+                errorBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.red, width: 1),
                 ),
-                focusedErrorBorder: OutlineInputBorder(
+                focusedErrorBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.red, width: 1),
                 ),
               ),
             ),
 
             const SizedBox(height: 10),
-            CustomTextField(
-              controller: _username,
-              hintText: 'Nombre',
-              labelText: 'Nombre',
-              prefixIcon: Icon(
-                Icons.person_outline,
-                color: AppColors.gray,
-                size: 20,
-              ),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Ingrese un nombre';
-                }
-                return null;
-              },
-            ),
+            // CustomTextField(
+            //   controller: _username,
+            //   hintText: 'Nombre',
+            //   labelText: 'Nombre',
+            //   prefixIcon: const Icon(
+            //     Icons.person_outline,
+            //     color: AppColors.gray,
+            //     size: 20,
+            //   ),
+            //   validator: (value) {
+            //     if (value!.isEmpty) {
+            //       return 'Ingrese un nombre';
+            //     }
+            //     return null;
+            //   },
+            // ),
             const SizedBox(height: 30),
             SizedBox(
               width: double.infinity,
@@ -183,21 +189,23 @@ class _NewScheduleFormState extends State<NewScheduleForm> {
                           scheduleService.createItem(ScheduleModel(
                               fieldName: widget.field.name ?? 'Campo',
                               fieldId: widget.field.id,
-                              username: _username.text,
+                              username: Provider.of<UserProvider>(context,
+                                          listen: false)
+                                      .userName ??
+                                  '',
                               rainProbability: _rainProb.text,
                               date: date));
                           weatherProvider.setRainProb('');
                           GoRouter.of(context)
                               .clearStackAndNavigate('/dashboard');
                         } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text(
-                                      'Ya existe una cita en esta fecha')));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  Text(translate.book_page.already_booked)));
                         }
                       }
                     },
-                    child: const Text('Reservar')),
+                    child: Text(translate.book_page.book_now)),
               ),
             )
           ],

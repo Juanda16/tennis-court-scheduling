@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tennis_court_scheduling/core/assets/images/images.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/provider.dart';
+import 'package:tennis_court_scheduling/scheduling/presentation/provider/user_provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/views/home/widgets/fields.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/views/home/widgets/schedule_list.dart';
 
@@ -32,23 +34,24 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    final String? currentUser = Provider.of<UserProvider>(context).userName;
     return Scaffold(
-      appBar: const MainAppBar(
+      appBar: MainAppBar(
         actions: [
-          ProfilePic(isAsset: true, imageUrl: 'assets/images/user.png'),
-          CustomIconButton(
+          ProfilePic(isAsset: true, imageUrl: Images.defaultUser),
+          const CustomIconButton(
             icon: Icon(
               Icons.notifications_none_rounded,
               color: AppColors.white,
             ),
           ),
-          CustomIconButton(
+          const CustomIconButton(
             icon: Icon(
               Icons.menu,
               color: AppColors.white,
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
         ],
       ),
       body: ListView(
@@ -64,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
             child: CustomText(
-              "Hola, Andrea!",
+              "Hola, $currentUser!",
               style: CustomTextStyles.customTextStylePoppins(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,

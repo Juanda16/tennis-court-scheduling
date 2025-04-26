@@ -4,8 +4,8 @@ class CourtModel {
   String? type;
   String? availableFrom;
   String? availableTo;
-  int? lat;
-  int? lon;
+  double? lat;
+  double? lon;
   int? price;
   String? locationName;
   List<InstructorList>? instructorList;
@@ -31,8 +31,8 @@ class CourtModel {
         type: json["type"],
         availableFrom: json["availableFrom"],
         availableTo: json["availableTo"],
-        lat: json["lat"],
-        lon: json["lon"],
+        lat: double.parse(json["lat"].toString()),
+        lon: double.parse(json["lon"].toString()),
         price: json["price"],
         locationName: json["location_name"],
         instructorList: json["instructorList"] == null

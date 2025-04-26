@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:tennis_court_scheduling/core/assets/images/images.dart';
 import 'package:tennis_court_scheduling/core/i18n/generated/translations.g.dart';
 import 'package:tennis_court_scheduling/core/routing/app_router.dart';
 import 'package:tennis_court_scheduling/core/style/style.dart';
 import 'package:tennis_court_scheduling/core/utils/validators.dart';
+import 'package:tennis_court_scheduling/scheduling/domain/entities/user_model.dart';
+import 'package:tennis_court_scheduling/scheduling/presentation/provider/user_provider.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/widgets/custom_text.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/ui/widgets/custom_text_form_field.dart';
 
@@ -100,7 +103,7 @@ class _RegisterViewState extends State<RegisterView> {
                   children: [
                     CustomTextField(
                       controller: fullNameController,
-                      hintText: 'TODO', //TODO: Add hint text
+                      hintText: 'Juan Arismendy',
                       labelText: translate.register.full_name,
                       prefixIcon: SizedBox(
                         width: 40,
@@ -163,7 +166,7 @@ class _RegisterViewState extends State<RegisterView> {
                     const SizedBox(height: 10),
                     CustomTextField(
                       controller: phoneController,
-                      hintText: 'TODO', //TODO: Add hint text
+                      hintText: '3546798',
                       labelText: translate.register.phone,
                       prefixIcon: SizedBox(
                         width: 40,
@@ -302,6 +305,17 @@ class _RegisterViewState extends State<RegisterView> {
                               );
                               return;
                             }
+
+                            final User user = User(
+                              name: fullNameController.text,
+                              email: emailController.text,
+                              phoneNumber: phoneController.text,
+                              password: passwordController.text,
+                              createdAt: DateTime.now(),
+                            );
+
+                            Provider.of<UserProvider>(context, listen: false)
+                                .createUser(user);
                             //navigate to dashboard go router
                             GoRouter.of(context)
                                 .clearStackAndNavigate('/dashboard');

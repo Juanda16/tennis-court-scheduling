@@ -226,24 +226,28 @@ class _LoginViewState extends State<LoginView> {
 
                             if (login) {
                               //navigate to dashboard go router
-                              GoRouter.of(context)
-                                  .clearStackAndNavigate('/dashboard');
+                              if (mounted) {
+                                GoRouter.of(context)
+                                    .clearStackAndNavigate('/dashboard');
+                              }
                             } else {
                               //show error message
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: CustomText(
-                                    translate.login.forgot_password,
-                                    style:
-                                        CustomTextStyles.customTextStylePoppins(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.white,
+                              if (mounted) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: CustomText(
+                                      translate.login.forgot_password,
+                                      style: CustomTextStyles
+                                          .customTextStylePoppins(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.white,
+                                      ),
                                     ),
+                                    backgroundColor: AppColors.red,
                                   ),
-                                  backgroundColor: AppColors.red,
-                                ),
-                              );
+                                );
+                              }
                             }
                           }
                         },

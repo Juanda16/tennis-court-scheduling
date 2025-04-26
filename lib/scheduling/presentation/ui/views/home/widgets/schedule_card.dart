@@ -15,7 +15,7 @@ class ScheduleCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.secondaryBackgroundColor,
       ),
       child: Row(
@@ -42,7 +42,7 @@ class ScheduleCard extends StatelessWidget {
                   )),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.calendar_today,
                     color: AppColors.gray,
                     size: 16,
@@ -81,7 +81,7 @@ class ScheduleCard extends StatelessWidget {
               IntrinsicHeight(
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.access_time,
                       color: AppColors.gray,
                       size: 16,
@@ -95,7 +95,7 @@ class ScheduleCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 5),
-                    VerticalDivider(
+                    const VerticalDivider(
                       color: AppColors.gray,
                       thickness: 1,
                       width: 20,

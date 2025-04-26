@@ -57,7 +57,7 @@ class MyScheduleCard extends StatelessWidget {
                     //delete button
                     const SizedBox(width: 10),
                     IconButton(
-                      icon: Icon(Icons.delete, color: AppColors.red),
+                      icon: const Icon(Icons.delete, color: AppColors.red),
                       onPressed: () {
                         showDialog(
                             context: context,
@@ -106,7 +106,7 @@ class MyScheduleCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.calendar_today,
                       color: AppColors.gray,
                       size: 16,
@@ -145,7 +145,7 @@ class MyScheduleCard extends StatelessWidget {
                 IntrinsicHeight(
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.access_time,
                         color: AppColors.gray,
                         size: 16,
@@ -159,7 +159,7 @@ class MyScheduleCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 5),
-                      VerticalDivider(
+                      const VerticalDivider(
                         color: AppColors.gray,
                         thickness: 1,
                         width: 20,

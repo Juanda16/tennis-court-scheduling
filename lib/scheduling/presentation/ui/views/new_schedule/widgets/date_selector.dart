@@ -61,7 +61,9 @@ Widget dateSelector(
             // Unix time, UTC time zone
 
             final unixTime = picker.toUtc().millisecondsSinceEpoch ~/ 1000;
-            weatherProvider.getWeather(context, unixTime.toString());
+            if (context.mounted) {
+              weatherProvider.getWeather(context, unixTime.toString());
+            }
 
             final DateFormat formatter = DateFormat('yyyy-MM-dd');
             final String formatted = formatter.format(picker);

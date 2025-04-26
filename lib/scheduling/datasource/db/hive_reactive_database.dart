@@ -113,7 +113,7 @@ class HiveDatabase implements IBaseDatabase {
       required String value}) async {
     try {
       final allData = _box.values
-          .where((data) => data is Map<String, dynamic>)
+          .whereType<Map<String, dynamic>>()
           .cast<Map<String, dynamic>>()
           .toList();
 

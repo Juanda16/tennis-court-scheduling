@@ -96,7 +96,7 @@ class _FieldCarouselState extends State<FieldCarousel> {
             child: Center(
               //favorite icon
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.favorite_border,
                   color: AppColors.white,
                   size: 30,

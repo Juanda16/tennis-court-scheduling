@@ -154,24 +154,6 @@ class _NewScheduleFormState extends State<NewScheduleForm> {
                 ),
               ),
             ),
-
-            const SizedBox(height: 10),
-            // CustomTextField(
-            //   controller: _username,
-            //   hintText: 'Nombre',
-            //   labelText: 'Nombre',
-            //   prefixIcon: const Icon(
-            //     Icons.person_outline,
-            //     color: AppColors.gray,
-            //     size: 20,
-            //   ),
-            //   validator: (value) {
-            //     if (value!.isEmpty) {
-            //       return 'Ingrese un nombre';
-            //     }
-            //     return null;
-            //   },
-            // ),
             const SizedBox(height: 30),
             SizedBox(
               width: double.infinity,

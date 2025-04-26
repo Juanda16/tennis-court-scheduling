@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: AppLocaleUtils.supportedLocales,
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
           title: 'Tennis Court',
-          theme: AppTheme.baseTheme,
+          theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.system,
           routerConfig: AppRouter.router,

@@ -3,6 +3,14 @@ import 'package:tennis_court_scheduling/scheduling/datasource/db/db.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/entities/entities.dart';
 import 'package:tennis_court_scheduling/scheduling/infrastructure/datasource_contracts/i_reservation_local_datasource.dart';
 
+/// {@template court_local_data_source}
+/// A concrete implementation of [ICourtLocalDatasource] that provides access to
+/// court data stored locally.
+///
+/// This class interacts with an [IBaseDatabase] instance to persist and retrieve
+/// [CourtModel] data. It also loads mock [CourtModel] data from a JSON file
+/// specified by [mockCourtsJsonAssetPath] during the [getAllCourts] operation.
+/// {@endtemplate}
 @Singleton(as: IReservationLocalDataSource)
 class ReservationLocalDataSource implements IReservationLocalDataSource {
   final IBaseDatabase _database;

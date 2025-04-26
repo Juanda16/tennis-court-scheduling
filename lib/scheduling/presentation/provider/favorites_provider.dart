@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/entities/court_model.dart';
 
+/// This provider manages the favorites list of courts.
+/// It allows adding or removing courts from the favorites list.
+/// It also provides a method to check if a court is in the favorites list.
+
 class FavoritesProvider with ChangeNotifier {
   final Set<CourtModel> _favorites = {};
 

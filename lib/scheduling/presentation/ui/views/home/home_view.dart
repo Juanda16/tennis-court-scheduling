@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       final schedule = context.read<ScheduleProvider>();
-      final fields = context.read<FieldProvider>();
+      final fields = context.read<CourtProvider>();
       context.read<PositionProvider>().getLocation();
       fields.getFieldsFromJson();
       schedule.getItems();

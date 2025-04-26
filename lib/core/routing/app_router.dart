@@ -40,7 +40,7 @@ class AppRouter {
               path: 'new-schedule/:fieldId',
               builder: (BuildContext context, GoRouterState state) {
                 final fieldId = state.pathParameters['fieldId'];
-                final fields = context.read<FieldProvider>();
+                final fields = context.read<CourtProvider>();
                 final field = fields.fieldList
                     .firstWhere((element) => element.id == fieldId);
                 return NewScheduleView(

@@ -29,7 +29,7 @@ class CourtList extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Consumer<FieldProvider>(
+            Consumer<CourtProvider>(
               builder: (context, provider, child) {
                 return SizedBox(
                   height: 360,

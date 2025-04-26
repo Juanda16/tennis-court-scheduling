@@ -5,6 +5,10 @@ import 'package:tennis_court_scheduling/scheduling/domain/use_cases/book_court.d
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/cancel_reservation.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_all_reservations_use_case.dart';
 
+/// This provider manages the schedule of tennis court reservations.
+/// It allows creating, deleting, and retrieving reservations.
+/// It also checks if a reservation is repeated for a specific court.
+
 class ScheduleProvider extends ChangeNotifier {
   ScheduleProvider(
     this._getAllReservationsUseCase,
@@ -25,8 +29,6 @@ class ScheduleProvider extends ChangeNotifier {
   //user schedule list 'Andrea';
   List<ScheduleModel> get userScheduleList {
     return _scheduleList;
-    // .where((schedule) => schedule.username.toLowerCase() == 'andrea')
-    // .toList();
   }
 
   // Create new note

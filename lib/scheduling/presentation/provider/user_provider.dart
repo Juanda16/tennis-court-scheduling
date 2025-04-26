@@ -6,6 +6,10 @@ import 'package:tennis_court_scheduling/scheduling/domain/use_cases/create_user.
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_user_use_case.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/set_current_user.dart';
 
+/// This provider manages the current user.
+/// It retrieves the user using the `getUserUseCase`
+/// and sets the user using the `setCurrentUserUseCase`.
+/// It also provides methods to create a new user and authenticate an existing user.
 class UserProvider extends ChangeNotifier {
   UserProvider(
     this._getUserUseCase,

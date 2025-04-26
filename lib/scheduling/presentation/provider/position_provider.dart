@@ -4,6 +4,9 @@ import 'package:geolocator/geolocator.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/entities/no_param.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_current_location.dart';
 
+/// This provider manages the user's current location and address.
+/// It retrieves the location using the `getCurrentLocationUseCase`
+/// and converts the coordinates to a human-readable address.
 class PositionProvider extends ChangeNotifier {
   PositionProvider({
     required this.getCurrentLocationUseCase,

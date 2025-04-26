@@ -7,6 +7,9 @@ import 'package:tennis_court_scheduling/scheduling/domain/entities/weather_model
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_weather_by_coordinates.dart';
 import 'package:tennis_court_scheduling/scheduling/presentation/provider/provider.dart';
 
+/// This provider manages the weather data based on the user's location.
+/// It retrieves the weather information using the `getWeatherByCoordinates`
+/// use case.
 class WeatherProvider extends ChangeNotifier {
   WeatherProvider({
     required this.getWeatherByCoordinates,

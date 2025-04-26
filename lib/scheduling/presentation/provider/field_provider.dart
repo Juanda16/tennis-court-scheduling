@@ -3,8 +3,9 @@ import 'package:tennis_court_scheduling/scheduling/domain/entities/court_model.d
 import 'package:tennis_court_scheduling/scheduling/domain/entities/no_param.dart';
 import 'package:tennis_court_scheduling/scheduling/domain/use_cases/get_all_courts.dart';
 
-class FieldProvider extends ChangeNotifier {
-  FieldProvider(this._getAllCourtsUseCase);
+/// This provider manages the list of tennis courts.
+class CourtProvider extends ChangeNotifier {
+  CourtProvider(this._getAllCourtsUseCase);
   final IGetAllCourtsUseCase _getAllCourtsUseCase;
 
   CourtModel _selected = CourtModel(id: '1');

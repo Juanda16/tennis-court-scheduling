@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           ChangeNotifierProvider(
-            create: (context) => FieldProvider(
+            create: (context) => CourtProvider(
               di.getIt<IGetAllCourtsUseCase>(),
             ),
           ),

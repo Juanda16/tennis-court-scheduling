@@ -13,8 +13,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:tennis_court_scheduling/scheduling/datasource/db/db.dart'
     as _i867;
-import 'package:tennis_court_scheduling/scheduling/datasource/db/hive_reactive_database.dart'
-    as _i880;
+import 'package:tennis_court_scheduling/scheduling/datasource/db/hive_database.dart'
+    as _i263;
 import 'package:tennis_court_scheduling/scheduling/datasource/local/court_local_datasource.dart'
     as _i866;
 import 'package:tennis_court_scheduling/scheduling/datasource/local/location_local_datasource.dart'
@@ -91,9 +91,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i867.IWeatherRemoteDatasource>(
         () => _i334.WeatherRemoteDatasource());
+    gh.singleton<_i867.IBaseDatabase>(() => _i263.HiveDatabase());
     gh.singleton<_i710.ILocationLocalDatasource>(
         () => _i331.LocationLocalDatasource());
-    gh.singleton<_i867.IBaseDatabase>(() => _i880.HiveDatabase());
     gh.singleton<_i456.IUserLocalDataSource>(
         () => _i182.UserLocalDataSource(database: gh<_i867.IBaseDatabase>()));
     gh.singleton<_i860.IReservationLocalDataSource>(() =>

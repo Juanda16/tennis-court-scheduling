@@ -29,23 +29,6 @@ class MapWithId {
               previousValue ^ element.key.hashCode ^ element.value.hashCode);
 }
 
-/// Class abstraction for allowing pagination.
-class PaginatedDbMaps {
-  final Iterable<Map<String, dynamic>> _documents;
-
-  /// Object representing the query to be requested for retrieving next page.
-  final Object? nextSkip;
-
-  /// All the [Map<String, dynamic>] documents contained in current query page.
-  Iterable<Map<String, dynamic>> get documents =>
-      List<Map<String, dynamic>>.unmodifiable(_documents);
-
-  /// Constructor receiving [documents] and [nextSkip]
-  PaginatedDbMaps(
-      {required Iterable<Map<String, dynamic>> documents, this.nextSkip})
-      : _documents = documents;
-}
-
 /// Abstract class for modeling a reactive database.
 ///
 /// It should return Streams prom read-only methods that update each time the read info is changed in the source db.
